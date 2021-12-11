@@ -17,7 +17,7 @@ const scss = () => {
     .pipe(autoprefixer(app.autoprefixer))
     .pipe(shorthand())
     .pipe(groupCssMediaQueries())
-    .pipe(dest(path.scss.dest, { sourcemaps: app.isDev }))
+    // .pipe(dest(path.scss.dest, { sourcemaps: app.isDev }))
     .pipe(rename(app.rename))
     .pipe(cleanCss(app.cleanCss))
     .pipe(dest(path.scss.dest, { sourcemaps: app.isDev }))
