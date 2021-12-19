@@ -28,6 +28,12 @@ module.exports = {
     dest: pathDest + "/img"
   },
 
+  sprite: {
+    src: pathSrc + "/img/svg/*.svg",
+    watch: pathSrc + "/img/svg/*.*",
+    dest: pathDest + "/img/svg"
+  },
+
   font: {
     src: pathSrc + "/fonts/*.*",
     watch: pathSrc + "/fonts/**/*.*",

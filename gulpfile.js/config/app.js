@@ -20,5 +20,13 @@ module.exports = {
 
   webpack: {
     mode: isProd ? "production" : "development"
+  },
+
+  svgSprite: {
+    mode: {
+      stack: {
+        sprite: "../sprite.svg"
+      }
+    }
   }
 }
