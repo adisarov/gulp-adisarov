@@ -1,5 +1,5 @@
-const pathSrc = "./src"
-const pathDest = "./dist"
+const pathSrc = "./src";
+const pathDest = "./dist";
 
 module.exports = {
   root: pathDest,
@@ -11,8 +11,8 @@ module.exports = {
   },
 
   scss: {
-    src: pathSrc + "/scss/*.{scss,sass}",
-    watch: pathSrc + "/scss/**/*.{scss,sass}",
+    src: pathSrc + "/scss/*.scss",
+    watch: pathSrc + "/scss/**/*.scss",
     dest: pathDest + "/css"
   },
 
@@ -23,20 +23,14 @@ module.exports = {
   },
 
   img: {
-    src: pathSrc + "/img/*.{png,jpg,jpeg,gif,svg}",
-    watch: pathSrc + "/img/**/*.{png,jpg,jpeg,gif,svg}",
+    src: pathSrc + "/img/*.*",
+    watch: pathSrc + "/img/**/*.*",
     dest: pathDest + "/img"
   },
 
-  sprite: {
-    src: pathSrc + "/img/svg/*.svg",
-    watch: pathSrc + "/img/svg/*.*",
-    dest: pathDest + "/img/svg"
-  },
-
   font: {
-    src: pathSrc + "/fonts/*.{eot,ttf,otf,otc,ttc,woff,woff2,svg}",
-    watch: pathSrc + "/fonts/**/*.{eot,ttf,otf,otc,ttc,woff,woff2,svg}",
+    src: pathSrc + "/fonts/*.*",
+    watch: pathSrc + "/fonts/**/*.*",
     dest: pathDest + "/fonts"
   }
 }

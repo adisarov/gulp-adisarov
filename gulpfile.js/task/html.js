@@ -1,13 +1,15 @@
-const { src, dest} = require("gulp")
-const fileInclude = require("gulp-file-include")
-const webpHtml = require("gulp-webp-html")
+const { src, dest } = require("gulp");
 
-const path = require("../config/path.js")
+const fileInclude = require("gulp-file-include");
+const htmlmin = require("gulp-htmlmin");
+
+const path = require("../config/path.js");
+const app = require("../config/app.js");
 
 const html = () => {
   return src(path.html.src)
-    .pipe(fileInclude())
-    .pipe(webpHtml())
+    .pipe(fileInclude(app.fileInclude))
+    .pipe(htmlmin(app.htmlmin))
     .pipe(dest(path.html.dest))
 }
 

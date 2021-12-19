@@ -1,20 +1,16 @@
-const { src, dest } = require("gulp")
-const imagemin = require("gulp-imagemin")
-const newer = require("gulp-newer")
-const webp = require("gulp-webp")
-const gulpif = require("gulp-if")
+const { src, dest } = require("gulp");
 
-const path = require("../config/path.js")
-const app = require("../config/app.js")
+const newer = require("gulp-newer");
+const tinypng = require("gulp-tinypng-free");
+const gulpif = require("gulp-if");
+
+const path = require("../config/path.js");
+const app = require("../config/app.js");
 
 const img = () => {
   return src(path.img.src)
     .pipe(newer(path.img.dest))
-    .pipe(webp())
-    .pipe(dest(path.img.dest))
-    .pipe(src(path.img.src))
-    .pipe(newer(path.img.dest))
-    .pipe(gulpif(app.isProd, imagemin(app.imagemin)))
+    .pipe(gulpif(app.isProd, tinypng()))
     .pipe(dest(path.img.dest))
 }
 
