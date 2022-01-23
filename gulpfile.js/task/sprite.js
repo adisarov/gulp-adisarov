@@ -1,8 +1,9 @@
 const { src, dest } = require("gulp");
-const svgSprite = require('gulp-svg-sprite');
 
 const path = require("../config/path.js");
 const app = require("../config/app.js");
+
+const svgSprite = require("gulp-svg-sprite");
 
 const sprite = () => {
   return src(path.sprite.src)
@@ -10,4 +11,4 @@ const sprite = () => {
     .pipe(dest(path.sprite.dest))
 }
 
-module.exports = sprite;
+module.exports = sprite; 
