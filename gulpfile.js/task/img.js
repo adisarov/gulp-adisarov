@@ -1,19 +1,19 @@
 const { src, dest } = require("gulp");
 
-const newer = require("gulp-newer");
-const svgmin = require("gulp-svgmin");
-const tinypng = require("gulp-tinypng-free");
-const gulpif = require("gulp-if");
-
 const path = require("../config/path.js");
 const app = require("../config/app.js");
 
+const tinypngFree = require("gulp-tinypng-free");
+const svgo = require("gulp-svgo");
+const gulpif = require("gulp-if");
+
 const img = () => {
   return src(path.img.src)
-    .pipe(newer(path.img.dest))
-    .pipe(gulpif(app.isProd, svgmin()))
-    .pipe(gulpif(app.isProd, tinypng()))
+    .pipe(gulpif(app.isProd, tinypngFree()))
+    .pipe(dest(path.img.dest))
+    .pipe(src(path.svg.src))
+    .pipe(svgo())
     .pipe(dest(path.img.dest))
 }
 
-module.exports = img;
+module.exports = img; 
