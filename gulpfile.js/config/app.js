@@ -6,20 +6,49 @@ module.exports = {
   isDev: isDev,
 
   fileInclude: {
-    prefix: '@',
-    basepath: '@file'
+    prefix: '@'
+  },
+
+  typograf: {
+    locale: ['ru', 'en-US']
   },
 
   htmlmin: {
     collapseWhitespace: isProd
   },
 
-  rename: {
-    suffix: ".min"
+  autoprefixer: {
+    cascade: false,
+    grid: true,
+    overrideBrowserslist: ["last 5 versions"]
+  },
+
+  cleanCss: {
+    level: 2
   },
 
   webpack: {
-    mode: isProd ? "production" : "development"
+    mode: isProd ? "production" : "development",
+    output: {
+      filename: "main.js",
+    },
+    module: {
+      rules: [{
+        test: /\.m?js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: [
+              ["@babel/preset-env", {
+                targets: "defaults"
+              }]
+            ]
+          }
+        }
+      }]
+    },
+    devtool: false
   },
 
   svgSprite: {
