@@ -7,7 +7,7 @@ module.exports = {
   html: {
     src: pathSrc + "/html/*.html",
     watch: pathSrc + "/html/**/*.html",
-    dest: pathDest
+    dest: pathDest 
   },
 
   scss: {
@@ -23,20 +23,25 @@ module.exports = {
   },
 
   img: {
-    src: pathSrc + "/img/*.*",
+    src: pathSrc + "/img/*.{png,jpg,webp}",
     watch: pathSrc + "/img/**/*.*",
+    dest: pathDest + "/img"
+  },
+
+  svg: {
+    src: pathSrc + "/img/*.svg",
     dest: pathDest + "/img"
   },
 
   sprite: {
     src: pathSrc + "/img/svg/*.svg",
-    watch: pathSrc + "/img/svg/*.*",
+    watch: pathSrc + "/img/svg/*.svg",
     dest: pathDest + "/img/svg"
   },
 
-  font: {
-    src: pathSrc + "/fonts/*.*",
+  fonts: {
+    src: pathSrc + "/fonts/**/*.*",
     watch: pathSrc + "/fonts/**/*.*",
-    dest: pathDest + "/fonts"
+    dest: pathDest + "/fonts/*"
   }
 }
