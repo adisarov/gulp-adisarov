@@ -1,2 +1,2 @@
-const sum = require("./module/sum.js")
-console.log(sum(2,10));
+const summ = require("./module/sum.js")
+console.log(3+2);
