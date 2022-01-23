@@ -1,22 +1,21 @@
 const { src, dest } = require("gulp");
 
-const sass = require('gulp-sass')(require('sass'));
-const autoprefixer = require('gulp-autoprefixer');
-const csso = require('gulp-csso');
-const groupCssMediaQueries = require('gulp-group-css-media-queries');
-const rename = require('gulp-rename');
-
 const path = require("../config/path.js");
 const app = require("../config/app.js");
+
+const sass = require("gulp-sass")(require("sass"));
+const autoprefixer = require("gulp-autoprefixer");
+const groupCssMediaQueries = require("gulp-group-css-media-queries");
+const cleanCss = require("gulp-clean-css");
+const gulpif = require("gulp-if");
 
 const scss = () => {
   return src(path.scss.src, { sourcemaps: app.isDev })
     .pipe(sass())
-    .pipe(autoprefixer())
+    .pipe(autoprefixer(app.autoprefixer))
     .pipe(groupCssMediaQueries())
-    .pipe(csso())
-    .pipe(rename(app.rename))
+    .pipe(gulpif(app.isProd, cleanCss(app.cleanCss)))
     .pipe(dest(path.scss.dest, { sourcemaps: app.isDev }))
 }
 
-module.exports = scss;
+module.exports = scss; 
