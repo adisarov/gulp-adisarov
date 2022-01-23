@@ -1,1 +1,1 @@
-module.exports = (a, b) => a + b;
+console.log(5+10);
