@@ -7,7 +7,7 @@ module.exports = {
   html: {
     src: pathSrc + "/html/*.html",
     watch: pathSrc + "/html/**/*.html",
-    dest: pathDest 
+    dest: pathDest
   },
 
   scss: {
@@ -42,6 +42,6 @@ module.exports = {
   fonts: {
     src: pathSrc + "/fonts/**/*.*",
     watch: pathSrc + "/fonts/**/*.*",
-    dest: pathDest + "/fonts/*"
+    dest: pathDest + "/fonts"
   }
 }
