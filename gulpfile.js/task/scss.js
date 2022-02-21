@@ -12,7 +12,7 @@ const gulpif = require("gulp-if");
 const scss = () => {
   return src(path.scss.src, { sourcemaps: app.isDev })
     .pipe(sass())
-    .pipe(autoprefixer(app.autoprefixer))
+    .pipe(gulpif(app.isProd, autoprefixer(app.autoprefixer)))
     .pipe(groupCssMediaQueries())
     .pipe(gulpif(app.isProd, cleanCss(app.cleanCss)))
     .pipe(dest(path.scss.dest, { sourcemaps: app.isDev }))
